@@ -14,8 +14,13 @@ function animate() {
 	// setting the height here will clear the canvas on each frame so that the car doesn't leave a trail
 	const height = (canvas.height = window.innerHeight);
 
+	ctx.save();
+	ctx.translate(0, -car.y + height / 1.4);
+
 	road.draw(ctx);
 	car.draw(ctx);
+
+	ctx.restore();
 
 	requestAnimationFrame(animate);
 }
