@@ -16,9 +16,9 @@ class Car {
 		this.controls = new Controls();
 	}
 
-	update() {
+	update(roadBorders) {
 		this.#handleMovement();
-		this.sensor.update();
+		this.sensor.update(roadBorders);
 	}
 
 	#handleMovement() {
@@ -60,7 +60,6 @@ class Car {
 	}
 
 	draw(ctx) {
-		console.log('draw car');
 		ctx.save();
 		ctx.translate(this.x, this.y);
 		ctx.rotate(-this.angle);
